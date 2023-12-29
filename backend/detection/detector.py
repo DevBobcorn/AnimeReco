@@ -9,8 +9,8 @@ from random import randint
 import base64
 
 from config import config
-from recognition.model.featurize import process_and_featurize
-from recognition.model.elastic_search import feature_search
+from recognition.featurize import process_and_featurize
+from recognition.elastic_search import feature_search
 
 class Detector(object):
 

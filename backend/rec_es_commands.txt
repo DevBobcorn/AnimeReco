@@ -1,0 +1,31 @@
+# 在Kibana的Dev Tools/Console中运行
+
+# 删除anime_face索引
+DELETE anime_face
+
+# 创建anime_face索引
+PUT anime_face
+{
+  "mappings": {
+    "properties": {
+      "label" : {
+        "type" : "keyword"
+      },
+      "img_name" : {
+        "type" : "keyword"
+      },
+      "embedding": {
+        "type": "dense_vector",
+        "dims": 512
+      }
+    }
+  }
+}
+
+# 获取anime_face索引中的所有项
+GET anime_face/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}

@@ -32,9 +32,9 @@ class Config:
     ])
 
     # dataset
-    train_root = 'data/starrail_4_train' # 'data/CASIA-WebFace'
-    test_root = 'data/starrail_4_test' # "data/lfw-align-128"
-    test_list = 'data/starrail_4_test/test_pairs.txt' # "data/lfw_test_pair.txt"
+    train_root = 'pixiv_data/starrail_4avatarXall_train'
+    test_root = 'pixiv_data/starrail_4avatarX10_test'
+    test_list = 'pixiv_data/starrail_4avatarX10_test/test_pairs.txt'
     
     # training settings
     checkpoints = "checkpoints"
