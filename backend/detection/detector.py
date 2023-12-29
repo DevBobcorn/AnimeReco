@@ -8,7 +8,7 @@ from PIL import Image
 from random import randint
 import base64
 
-from recognition.config import config
+from config import config
 from recognition.model.featurize import process_and_featurize
 from recognition.model.elastic_search import feature_search
 

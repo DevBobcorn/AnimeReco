@@ -3,8 +3,8 @@ from flask import *
 import glob
 import base64
 
-from core.detector import Detector
-import core.setup
+import detection
+from detection.detector import Detector
 
 if __name__ == '__main__':
     model = Detector()
@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     for image_path in glob.glob(f'D:/SchoolWork/CreeperX Test/Pixiv Test/downloaded {folder}/*.*'):
         try:
-            pid, image_info = core.setup.process(model, image_path)
+            pid, image_info = detection.detect(model, image_path)
 
             lastDotIndex = pid.rfind('.')
 

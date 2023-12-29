@@ -7,7 +7,7 @@ import torch.nn as nn
 import numpy as np
 from PIL import Image
 
-from recognition.config import config as conf
+from config import config as conf
 from recognition.model import FaceMobileNet, ResIRSE
 
 def process_and_featurize(image, transform) -> torch.Tensor:

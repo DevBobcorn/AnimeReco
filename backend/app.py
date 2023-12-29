@@ -8,9 +8,8 @@ mimetypes.add_type('text/css', '.css')
 from flask import *
 import os
 
-
-from core.detector import Detector
-import core.setup
+import detection
+from detection.detector import Detector
 
 ALLOWED_EXTENSIONS = set(['png', 'jpg'])
 app = Flask(__name__)
@@ -41,10 +40,12 @@ def allowed_file(filename):
 def index_page():
     return app.send_static_file('index.html')
 
+
 # 修复页面图标，参考 https://stackoverflow.com/a/48863231/21178367
 @app.route('/favicon.ico')
 def index_page_icon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 # 主页中使用的静态资源文件
 @app.route('/<path:file>')
@@ -61,7 +62,7 @@ def upload_image():
         print(f'Saving {app.config["UPLOAD_FOLDER"]}/{file.filename}...')
         file.save(f'{app.config["UPLOAD_FOLDER"]}/{file.filename}')
 
-        image_info = core.setup.detect(current_app.model,
+        image_info = detection.detect(current_app.model,
                                             app.config['UPLOAD_FOLDER'],
                                             app.config['OUTPUT_FOLDER'],
                                             file.filename)
