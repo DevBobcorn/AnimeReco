@@ -1,0 +1,14 @@
+# Python venv
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pixiv处理后的脸部头像
+pixiv_avatar/
+# 训练结果
+checkpoints/
+
+# Web后端文件
+server_files/
