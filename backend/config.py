@@ -11,22 +11,13 @@ class Config:
     # data preprocess
     input_shape = [3, 128, 128]
     train_transform = T.Compose([
-        #T.Grayscale(),
-        T.RandomHorizontalFlip(),
-        
-        #T.Resize((144, 144)),
-        #T.RandomCrop(input_shape[1:]),
-        T.Resize(input_shape[1:]),
-
+        T.RandomHorizontalFlip(),  # 随机水平翻转（好像也没必要？）
+        T.Resize(input_shape[1:]), # [1:]即表示忽略掉最前面channel的大小
         T.ToTensor(),
         T.Normalize(mean=[0.5], std=[0.5]),
     ])
     test_transform = T.Compose([
-        #T.Grayscale(),
-
-        # Resize without changing channel count
-        T.Resize(input_shape[1:]),
-
+        T.Resize(input_shape[1:]), # [1:]即表示忽略掉最前面channel的大小
         T.ToTensor(),
         T.Normalize(mean=[0.5], std=[0.5]),
     ])

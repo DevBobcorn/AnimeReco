@@ -1,12 +1,13 @@
-import os
-import os.path as osp
-
-import torch
-import torch.nn as nn
-import torch.optim as optim
-
-
 if __name__ == '__main__':
+    # 在Windows平台下如果不判断当前是否作为主程序运行会重复import，导致报错
+    # 参考 https://stackoverflow.com/a/18205006/21178367
+    import os
+    import os.path as osp
+
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+
     from tqdm import tqdm
 
     from recognition import FaceMobileNet, ResIRSE

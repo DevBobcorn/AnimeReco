@@ -41,5 +41,5 @@ def test_labels(data_root):
         print(result)
 
 if __name__ == '__main__':
-    #featurize_all_labels(conf.train_root)
+    featurize_all_labels(conf.train_root)
     test_labels(conf.test_root)
